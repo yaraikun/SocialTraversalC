@@ -1,0 +1,35 @@
+# Executable files
+*.exe
+*.out
+
+# Object files
+*.o
+
+# Build directory
+build/
+bin/
+
+# VSCode and IntelliJ shit
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Microsoft Office shit
+~$*
+.~lock.*
+*.tmp
+*.bak
+
+# Apple shit
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows shit
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
