@@ -1,8 +1,8 @@
 # 🌐 Project 2 – Social Network (Undirected Graph Application)
 
-📚 **Course:** CCDSALG – Term 3, A.Y. 2024–2025
-💻 **Language:** C
-🧠 **Concepts:** Graph Theory, BFS, DFS, File I/O
+📚 **Course:** CCDSALG – Term 3, A.Y. 2024–2025<br>
+💻 **Language:** C<br>
+🧠 **Concepts:** Graph Theory, BFS, DFS, File I/O<br>
 
 ---
 
