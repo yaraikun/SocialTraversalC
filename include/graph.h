@@ -15,4 +15,4 @@ typedef struct GraphTag {
 void InitGraph(GraphType *graph);
 int GetVertexIndex(GraphType graph, String vertexName);
 
-#endif
+#endif // GRAPH_H
