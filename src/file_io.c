@@ -47,3 +47,26 @@ int ReadInputFile(const char *filePath, GraphType *graph)
     fclose(fp);
     return graph->NumVertices;
 }
+
+void WriteMatrix(const char *filename, GraphType graph)
+{
+    FILE *fp = fopen(filename, "w");
+    int i, j;
+
+    if (fp == NULL)
+        return;
+
+    fprintf(fp, "%-9s", "");
+    for (i = 0; i < graph.NumVertices; i++)
+        fprintf(fp, "%-9s", graph.Vertices[i]);
+    fprintf(fp, "\n");
+
+    for (i = 0; i < graph.NumVertices; i++) {
+        fprintf(fp, "%-9s", graph.Vertices[i]);
+        for (j = 0; j < graph.NumVertices; j++)
+            fprintf(fp, "%-9d", graph.AdjMatrix[i][j]);
+        fprintf(fp, "\n");
+    }
+
+    fclose(fp);
+}
