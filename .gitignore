@@ -6,7 +6,7 @@
 *.o
 
 # Build directory
-build/
+obj/
 bin/
 
 # VSCode and IntelliJ shit

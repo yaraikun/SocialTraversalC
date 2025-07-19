@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-Wall -Iinclude
 
 SRC_DIR=src
-OBJ_DIR=build
+OBJ_DIR=obj
 BIN_DIR=bin
 
 SRCS = $(wildcard $(SRC_DIR)/*.c)
