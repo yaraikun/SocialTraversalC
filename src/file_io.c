@@ -2,116 +2,48 @@
 #include <string.h>
 #include "graph.h"
 
-int ReadInputFile(const char *FilePath, GraphType *graph)
+int ReadInputFile(const char *filePath, GraphType *graph)
 {
-    FILE *InputFile = fopen(FilePath, "r");
-    int i, j, k;
-    int NumVertices;
-    String vertex;
+    FILE *fp = fopen(filePath, "r");
+    String temp;
+    int i, j;
 
-    if (InputFile == NULL) {
-        fprintf(stderr, "File %s not found.\n", FilePath);
+    if (fp == NULL) {
+        fprintf(stderr, "File %s not found.\n", filePath);
         return -1;
     }
 
-    NumVertices = 0;
-
-    if (fscanf(InputFile, "%d", &NumVertices) != 1) {
-        fprintf(stderr, "Error: Failed to read number of points from %s\n", FilePath);
-        fclose(InputFile);
+    // PASS 1: Read number of vertices and their names
+    if (fscanf(fp, "%d", &(graph->NumVertices)) != 1) {
+        fprintf(stderr, "Error: Could not read vertex count from %s\n",
+                filePath);
+        fclose(fp);
         return -1;
     }
 
-    if (NumVertices > MAX_VERTICES || NumVertices < 0) {
-        fprintf(stderr, "Error: Number of points (%d) is out of valid range (0-%d).\n", NumVertices, MAX_VERTICES);
-        fclose(InputFile);
-        return -1;
-    }
-
-    for (i = 0; i < NumVertices; i++) {
-        j = 0;
-        
-        // Scan vertex
-        fscanf(InputFile, "%8s", vertex);
-
-        // Add to vertex array
-        strcpy(graph->Vertices[i], vertex);
+    for (i = 0; i < graph->NumVertices; i++) {
+        fscanf(fp, "%8s", graph->Vertices[i]);
 
         do {
-            // Scan neighbor
-            fscanf(InputFile, "%8s", vertex);
-
-            // Check if -1
-            if(strcmp(vertex, "-1") == 0)
-                break;
-
-            // If not, store to temp string array
-            strcpy(graph->Neighbors[i][j], vertex);
-
-            j++;
-
-        // Repeat until -1
-        } while (1);
+            fscanf(fp, "%8s", temp);
+        } while (strcmp(temp, "-1") != 0);
     }
 
-    // Add 1 to AdjMatrix array column if key found in the corresponding row
-    for (i = 0; i < NumVertices; i++)
-        for (j = 0; j < NumVertices; j++)
-            for (k = 0; k < NumVertices; k++)
-                if(strcmp(graph->Vertices[j], graph->Neighbors[i][k]) == 0)
-                    graph->AdjMatrix[i][j] = 1;
+    // PASS 2: Rewind and build the Adjacency Matrix
+    rewind(fp);
+    fscanf(fp, "%d", &i);
 
-    return NumVertices;
-}
+    for (i = 0; i < graph->NumVertices; i++) {
+        fscanf(fp, "%8s", temp);
 
-/***********************************
- * 
- * TO BE CONVERTED TO FILE OUTPUT
- * 
- ***********************************/
+        while (fscanf(fp, "%8s", temp) == 1 && strcmp(temp, "-1") != 0) {
+            j = GetVertexIndex(*graph, temp);
 
-void PrintSet(GraphType graph)
-{
-    
-}
-
-void PrintDegree(GraphType graph)
-{
-
-}
-
-void PrintList(GraphType graph)
-{
-    int i, j;
-    
-    for (i = 0; i < graph.NumVertices; i++) {
-        printf("%s->", graph.Vertices[i]);
-
-        for (j = 0; j < graph.NumVertices; j++)
-            if(strcmp(graph.Neighbors[i][j], "") != 0)    
-                printf("%s->", graph.Neighbors[i][j]);
-        
-        printf("\\\n");
+            if (j != -1)
+                graph->AdjMatrix[i][j] = 1;
+        }
     }
-}
 
-void PrintMatrix(GraphType graph)
-{
-    int i, j;
-
-    printf("%9s", "");
-
-    for (i = 0; i < graph.NumVertices; i++)
-        printf("%-9s", graph.Vertices[i]);
-    
-    printf("\n");
-
-    for (i = 0; i < graph.NumVertices; i++) {
-        printf("%-9s", graph.Vertices[i]);
-        
-        for (j = 0; j < graph.NumVertices; j++)
-            printf("%-9d", graph.AdjMatrix[i][j]);
-        
-        printf("\n");
-    }
+    fclose(fp);
+    return graph->NumVertices;
 }
