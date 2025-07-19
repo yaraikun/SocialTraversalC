@@ -3,7 +3,6 @@
 
 #include "graph.h"
 
-void SwapStr(String Str1, String Str2);
-void SortStrArr(String StrArr[], int Size);
+void SortStrArr(String strArr[], int size);
 
-#endif
+#endif // SORT_C
