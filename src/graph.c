@@ -10,9 +10,11 @@ void InitGraph(GraphType *graph)
 
     for (i = 0; i < MAX_VERTICES; i++) {
         strcpy(graph->Vertices[i], "");
-
-        for (j = 0; j < MAX_VERTICES; j++)
+        graph->NeighborCount[i] = 0;
+        for (j = 0; j < MAX_VERTICES; j++) {
             graph->AdjMatrix[i][j] = 0;
+            strcpy(graph->Neighbors[i][j], "");
+        }
     }
 }
 
