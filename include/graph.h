@@ -6,13 +6,13 @@
 
 typedef char String[MAX_CHARS + 1];
 
-typedef struct Graph {
+typedef struct GraphTag {
     int NumVertices;
-    int AdjMatrix[MAX_VERTICES][MAX_VERTICES];
     String Vertices[MAX_VERTICES];
-    String Neighbors[MAX_VERTICES][MAX_VERTICES];
+    int AdjMatrix[MAX_VERTICES][MAX_VERTICES];
 } GraphType;
 
 void InitGraph(GraphType *graph);
+int GetVertexIndex(GraphType graph, String vertexName);
 
 #endif
