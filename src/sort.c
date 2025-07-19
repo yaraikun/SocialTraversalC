@@ -1,34 +1,28 @@
-#include <stdio.h>
 #include <string.h>
 #include "sort.h"
-#include "graph.h"
 
-void SwapStr(String Str1, String Str2)
+void SwapStr(String str1, String str2)
 {
-    String Temp;
-
-    strcpy(Temp, Str1);
-    strcpy(Str1, Str2);
-    strcpy(Str2, Temp);
+    String temp;
+    strcpy(temp, str1);
+    strcpy(str1, str2);
+    strcpy(str2, temp);
 }
 
-void SortStrArr(String StrArr[], int Size)
+void SortStrArr(String strArr[], int size)
 {
-    int i, j, MinIdx;
+    int i, j, min_idx;
 
-    for (i = 0; i < Size - 1; i++) {
-        MinIdx = i;
-        
-        for (j = i + 1; j < Size; j++)
-            /*****************************************************
-             * 
-             * WORKS INCORRECTLY WITH MIXED CASE STRING ELEMENTS
-             * 
-             *****************************************************/
-            if (strcmp(StrArr[j], StrArr[MinIdx]) < 0)
-                MinIdx = j;
+    if (size <= 1) return;
 
-        if (MinIdx != i)
-            SwapStr(StrArr[i], StrArr[MinIdx]);
+    for (i = 0; i < size - 1; i++) {
+        min_idx = i;
+
+        for (j = i + 1; j < size; j++)
+            if (strcmp(strArr[j], strArr[min_idx]) < 0)
+                min_idx = j;
+
+        if (min_idx != i)
+            SwapStr(strArr[i], strArr[min_idx]);
     }
 }
