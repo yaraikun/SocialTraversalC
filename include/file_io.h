@@ -3,11 +3,11 @@
 
 #include "graph.h"
 
-int ReadInputFile(const char *FilePath, GraphType *graph);
+int ReadInputFile(const char *filePath, GraphType *graph);
 
-void PrintSet(GraphType graph);
-void PrintDegree(GraphType graph);
-void PrintList(GraphType graph);
-void PrintMatrix(GraphType graph);
+void WriteSet(const char *filename, GraphType graph);
+void WriteDegree(const char *filename, GraphType graph);
+void WriteList(const char *filename, GraphType graph);
+void WriteMatrix(const char *filename, GraphType graph);
 
 #endif // FILE_IO_H
