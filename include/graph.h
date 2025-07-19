@@ -10,6 +10,8 @@ typedef struct GraphTag {
     int NumVertices;
     String Vertices[MAX_VERTICES];
     int AdjMatrix[MAX_VERTICES][MAX_VERTICES];
+    String Neighbors[MAX_VERTICES][MAX_VERTICES];
+    int NeighborCount[MAX_VERTICES];
 } GraphType;
 
 void InitGraph(GraphType *graph);
