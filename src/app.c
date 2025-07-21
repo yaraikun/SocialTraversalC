@@ -52,6 +52,9 @@ void RunProgram(void)
     }
 
     // Output 1 - 4
+    get_output_filename(inputFilename, "-DEGREE", outputFilename);
+    WriteDegree(outputFilename, graph);
+
     get_output_filename(inputFilename, "-LIST", outputFilename);
     WriteList(outputFilename, graph);
 
