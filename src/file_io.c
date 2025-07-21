@@ -55,6 +55,14 @@ int ReadInputFile(const char *filePath, GraphType *graph)
     return graph->NumVertices;
 }
 
+void WriteSet(const char *filename, GraphType graph)
+{
+}
+
+void WriteDegree(const char *filename, GraphType graph)
+{
+}
+
 void WriteList(const char *filename, GraphType graph)
 {
     FILE *fp = fopen(filename, "w");
@@ -99,6 +107,10 @@ void WriteMatrix(const char *filename, GraphType graph)
     }
 
     fclose(fp);
+}
+
+void WriteBFS(const char *filename, GraphType graph, int startVertexIndex)
+{
 }
 
 void WriteDFS(const char *filename, GraphType graph, int startVertexIndex)
