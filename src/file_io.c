@@ -3,6 +3,7 @@
 #include <string.h>
 #include "file_io.h"
 #include "traversals.h"
+#include "sort.h"
 
 int ReadInputFile(const char *filePath, GraphType *graph)
 {
@@ -61,6 +62,32 @@ void WriteSet(const char *filename, GraphType graph)
 
 void WriteDegree(const char *filename, GraphType graph)
 {
+    FILE *fp = fopen(filename, "w");
+
+    if (fp == NULL)
+        return;
+
+    String sortedVertices[MAX_VERTICES];
+    int i, j;
+    int original_index;
+    int degree;
+
+    for(i = 0; i < graph.NumVertices; i++)
+        strcpy(sortedVertices[i], graph.Vertices[i]);
+
+    SortStrArr(sortedVertices, graph.NumVertices);
+
+    for (i = 0; i < graph.NumVertices; i++) {
+        original_index = GetVertexIndex(graph, sortedVertices[i]);
+        degree = 0;
+
+        for(j = 0; j < graph.NumVertices; j++)
+            degree += graph.AdjMatrix[original_index][j];
+
+        fprintf(fp, "%s %d\n", sortedVertices[i], degree);
+    }
+
+    fclose(fp);
 }
 
 void WriteList(const char *filename, GraphType graph)
@@ -75,9 +102,8 @@ void WriteList(const char *filename, GraphType graph)
     for (i = 0; i < graph.NumVertices; i++) {
         fprintf(fp, "%s->", graph.Vertices[i]);
         
-        for (j = 0; j < graph.NeighborCount[i]; j++) {
+        for (j = 0; j < graph.NeighborCount[i]; j++)
             fprintf(fp, "%s->", graph.Neighbors[i][j]);
-        }
         
         fprintf(fp, "\\\n");
     }
@@ -95,14 +121,18 @@ void WriteMatrix(const char *filename, GraphType graph)
     int i, j;
 
     fprintf(fp, "%-9s", "");
+
     for (i = 0; i < graph.NumVertices; i++)
         fprintf(fp, "%-9s", graph.Vertices[i]);
+
     fprintf(fp, "\n");
 
     for (i = 0; i < graph.NumVertices; i++) {
         fprintf(fp, "%-9s", graph.Vertices[i]);
+
         for (j = 0; j < graph.NumVertices; j++)
             fprintf(fp, "%-9d", graph.AdjMatrix[i][j]);
+
         fprintf(fp, "\n");
     }
 
