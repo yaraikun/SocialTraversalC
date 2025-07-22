@@ -75,7 +75,7 @@ void RunProgram(void)
     }
 
     // Output 5 - 6
-    get_output_filename(inputFilename, "-DFS", outputFilename);
+    get_output_filename(inputFilename, "-BFS", outputFilename);
     WriteBFS(outputFilename, graph, startVertexIndex);
 
     get_output_filename(inputFilename, "-DFS", outputFilename);
