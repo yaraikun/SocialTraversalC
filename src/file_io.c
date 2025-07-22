@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "file_io.h"
+#include "graph.h"
 #include "traversals.h"
 #include "sort.h"
+#include "set.h"
 
 int ReadInputFile(const char *filePath, GraphType *graph)
 {
@@ -58,6 +60,35 @@ int ReadInputFile(const char *filePath, GraphType *graph)
 
 void WriteSet(const char *filename, GraphType graph)
 {
+    FILE *fp = fopen(filename, "w");
+
+    if (fp == NULL)
+        return;
+
+    int i;
+
+    String sortedVertices[MAX_VERTICES];
+    int vertex_count = GetSortedVertices(graph, sortedVertices);
+
+    EdgeType sortedEdges[MAX_VERTICES * MAX_VERTICES];
+    int edge_count = GetSortedEdges(graph, sortedEdges);
+
+    fprintf(fp, "V(G)={");
+    for (i = 0; i < vertex_count; i++)
+        fprintf(fp, "%s%s", sortedVertices[i], (i == vertex_count - 1) ? "" : ",");
+    fprintf(fp, "}\n");
+
+    fprintf(fp, "E(G)={");
+    for (i = 0; i < edge_count; i++) {
+        fprintf(fp, "(%s,%s)", sortedEdges[i].v1, sortedEdges[i].v2);
+
+        if (i < edge_count - 1)
+            fprintf(fp, ",");
+    }
+
+    fprintf(fp, "}");
+
+    fclose(fp);
 }
 
 void WriteDegree(const char *filename, GraphType graph)
