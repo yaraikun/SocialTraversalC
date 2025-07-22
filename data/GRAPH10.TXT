@@ -1,0 +1,11 @@
+10
+Mercury Earth -1
+Venus Earth -1
+Earth Mercury Venus Mars -1
+Mars Earth Jupiter -1
+Jupiter Mars -1
+Zeus Hera -1
+Hera Zeus Apollo -1
+Apollo Hera Artemis Poseidon -1
+Artemis Apollo -1
+Poseidon Apollo -1

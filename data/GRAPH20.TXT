@@ -1,0 +1,21 @@
+20
+Hydrogen Lithium Oxygen -1
+Helium Neon -1
+Lithium Hydrogen Sodium -1
+Carbon Nitrogen Oxygen Sulphur Silicon -1
+Nitrogen Carbon Oxygen Sulphur -1
+Oxygen Hydrogen Carbon Nitrogen Fluorine -1
+Fluorine Oxygen -1
+Neon Helium Argon -1
+Sodium Lithium Potassium -1
+Magnesium Calcium -1
+Aluminum Silicon -1
+Silicon Carbon Aluminum -1
+Sulphur Carbon Nitrogen Iron Chlorine -1
+Chlorine Sulphur Argon -1
+Argon Neon Chlorine -1
+Potassium Sodium -1
+Calcium Magnesium Iron -1
+Iron Sulphur Calcium Copper Zinc -1
+Copper Iron -1
+Zinc Iron -1
