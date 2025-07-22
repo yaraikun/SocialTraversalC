@@ -12,7 +12,8 @@ typedef struct QueueTag {
 
 void CreateQueue(QueueType *q);
 int IsEmpty(QueueType *q);
+int IsFull(QueueType *q);
 void Enqueue(QueueType *q, int item);
-void Dequeue(QueueType *q);
+int Dequeue(QueueType *q);
 
 #endif // QUEUE_H
