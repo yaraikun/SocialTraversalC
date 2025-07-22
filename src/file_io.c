@@ -141,6 +141,20 @@ void WriteMatrix(const char *filename, GraphType graph)
 
 void WriteBFS(const char *filename, GraphType graph, int startVertexIndex)
 {
+    FILE *fp = fopen(filename, "w");
+
+    if (fp == NULL)
+        return;
+
+    String result[MAX_VERTICES];
+    int i;
+
+    BFS(graph, startVertexIndex, result);
+
+    for (i = 0; i < graph.NumVertices; i++)
+        fprintf(fp, "%s%s", result[i], (i == graph.NumVertices - 1) ? "" : " ");
+
+    fclose(fp);
 }
 
 void WriteDFS(const char *filename, GraphType graph, int startVertexIndex)
