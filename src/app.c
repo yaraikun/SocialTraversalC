@@ -6,31 +6,28 @@
 #include "graph.h"
 #include "file_io.h"
 
-static void get_output_filename(const char* input_name, const char* suffix, char* output_name) {
-    int input_len = strlen(input_name);
+static void get_output_filename(const char* input_path, const char* suffix, char* output_path)
+{
+    char temp_path[256];
+    char* base_name;
+    
+    strcpy(temp_path, input_path);
+    
+    base_name = strrchr(temp_path, '/');
+    if (base_name == NULL)
+        base_name = strrchr(temp_path, '\\');
 
-    char base_name[256];
-    int base_name_len = 0;
-
-    int i;
-    int found = 0;
-
-    i = input_len - 1;
-    while (i >= 0 && found != 1) {
-        if (input_name[i] == '.')
-            found = 1;
-        base_name[i] = input_name[i];
-        base_name_len++;
-
-        i++;
+    if (base_name == NULL) {
+        base_name = temp_path;
+    } else {
+        base_name++;
     }
-
-    base_name[base_name_len] = '\0';
-
-    strcpy(output_name, base_name);
-    strcat(output_name, suffix);
-    strcat(output_name, ".TXT");
-
+    
+    char *base_name_copy = strdup(base_name);
+    char *token = strtok(base_name_copy, ".");
+    
+    sprintf(output_path, "%s%s.TXT", token, suffix);
+    free(base_name_copy);
 }
 
 void RunProgram(void)
