@@ -4,11 +4,6 @@
 💻 **Language:** C<br>
 🧠 **Concepts:** Graph Theory, BFS, DFS, File I/O<br>
 
-
-📚 **Course:** CCDSALG – Term 3, A.Y. 2024–2025<br>
-💻 **Language:** C<br>
-🧠 **Concepts:** Graph Theory, BFS, DFS, File I/O<br>
-
 ---
 
 ## 💬 Commit Conventions
