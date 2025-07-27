@@ -73,18 +73,23 @@ void WriteSet(const char *filename, GraphType graph)
     EdgeType sortedEdges[MAX_VERTICES * MAX_VERTICES];
     int edge_count = GetSortedEdges(graph, sortedEdges);
 
-    fprintf(fp, "V(G)={");
+    char *base_name = strdup(filename);
+    char *token = strtok(base_name, "-");
+
+    fprintf(fp, "V(%s)={", token);
     for (i = 0; i < vertex_count; i++)
         fprintf(fp, "%s%s", sortedVertices[i], (i == vertex_count - 1) ? "" : ",");
     fprintf(fp, "}\n");
 
-    fprintf(fp, "E(G)={");
+    fprintf(fp, "E(%s)={", token);
     for (i = 0; i < edge_count; i++) {
         fprintf(fp, "(%s,%s)", sortedEdges[i].v1, sortedEdges[i].v2);
 
         if (i < edge_count - 1)
             fprintf(fp, ",");
     }
+
+    free(base_name);
 
     fprintf(fp, "}");
 
