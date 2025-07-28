@@ -1,13 +1,14 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "traversals.h"
 #include "graph.h"
 #include "queue.h"
 #include "sort.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * DFSRecursive() - Helper function to perform recursive Depth-First Search (DFS).
+ * DFSRecursive() - Helper function to perform recursive Depth-First Search
+ * (DFS).
  *
  * @graph:      The graph to traverse.
  * @u_idx:      The index of the current vertex being visited.
@@ -16,10 +17,11 @@
  * @count:      The number of visited vertices.
  *
  * Recursively explores the graph from vertex u_idx using DFS. Neighboring
- * vertices are visited in lexicographical order based on their IDs. Each vertex 
+ * vertices are visited in lexicographical order based on their IDs. Each vertex
  * is visited osly once. The result array will store the traversal sequence.
  */
-void DFSRecursive(GraphType graph, int u_idx, int visited[], String result[], int *count)
+void DFSRecursive(GraphType graph, int u_idx, int visited[], String result[],
+                  int *count)
 {
     int i;
     String neighbors[MAX_VERTICES];
@@ -67,9 +69,10 @@ void DFS(GraphType graph, int startVertexIndex, String result[])
  * @startVertexIndex:   The index of the starting vertex.
  * @result:             An array to store the traversal result in order.
  *
- * Performs an iterative BFS traversal starting from startVertexIndex. Vertices 
- * are visited level-by-level, and neighbors are enqueued in lexicographical order.
- * Each vertex is visited only once. The result array will store the traversal sequence.
+ * Performs an iterative BFS traversal starting from startVertexIndex. Vertices
+ * are visited level-by-level, and neighbors are enqueued in lexicographical
+ * order. Each vertex is visited only once. The result array will store the
+ * traversal sequence.
  */
 void BFS(GraphType graph, int startVertexIndex, String result[])
 {

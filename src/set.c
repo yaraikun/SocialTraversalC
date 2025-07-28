@@ -1,6 +1,6 @@
-#include <string.h>
 #include "set.h"
 #include "sort.h"
+#include <string.h>
 
 /**
  * SwapEdges() - Swaps the contents of two EdgeType structures.
@@ -26,9 +26,9 @@ static void SwapEdges(EdgeType *edge1, EdgeType *edge2)
  * @high:     The ending index of the subarray to partition.
  *
  * A static helper function for QuickSortEdges(). It takes the last element as a
- * pivot and rearranges the array such that all edges that come lexicographically 
- * before the pivot are placed before it, and all edges that come after are placed 
- * after it.
+ * pivot and rearranges the array such that all edges that come
+ * lexicographically before the pivot are placed before it, and all edges that
+ * come after are placed after it.
  *
  * Return: The partition index of the pivot element.
  */
@@ -81,7 +81,7 @@ static void QuickSortEdges(EdgeType edgeArr[], int low, int high)
  * @graph:  The graph whose vertices are to be retrieved.
  * @result: An array to store the sorted vertex IDs.
  *
- * Copies all vertex IDs from the graph into the result array, then sorts them 
+ * Copies all vertex IDs from the graph into the result array, then sorts them
  * in ascending order.
  *
  * Return: The number of vertices copied and sorted.
@@ -105,9 +105,10 @@ int GetSortedVertices(GraphType graph, String result[])
  * @result: An array to store the sorted edges.
  *
  * Iterates over the upper triangle of the adjacency matrix to retrieve
- * all unique edges. Each edge is stored with its endpoints ordered lexicographically. 
- * The resulting edge array is then sorted by v1 then v2 using QuickSortEdges().
- * 
+ * all unique edges. Each edge is stored with its endpoints ordered
+ * lexicographically. The resulting edge array is then sorted by v1 then v2
+ * using QuickSortEdges().
+ *
  * Return: The number of edges found and sorted.
  */
 int GetSortedEdges(GraphType graph, EdgeType result[])

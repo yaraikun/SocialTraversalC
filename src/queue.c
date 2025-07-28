@@ -35,7 +35,7 @@ int IsEmpty(QueueType *q)
  *
  * @q: Pointer to the queue to check.
  *
- * A queue is considered full if its count is equal to the maximum capacity 
+ * A queue is considered full if its count is equal to the maximum capacity
  * (MAX_VERTICES).
  *
  * Return: 1 if the stack is full, 0 otherwise.
@@ -51,7 +51,7 @@ int IsFull(QueueType *q)
  * @q:    Pointer to the queue.
  * @item: The item to insert.
  *
- * Adds an item to the rear of the queue and increments count if there is space. 
+ * Adds an item to the rear of the queue and increments count if there is space.
  * If the queue is full, the function returns. Uses circular indexing.
  */
 void Enqueue(QueueType *q, int item)

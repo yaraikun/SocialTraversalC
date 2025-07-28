@@ -1,13 +1,13 @@
+#include "graph.h"
 #include <stdio.h>
 #include <string.h>
-#include "graph.h"
 
 /**
  * InitGraph() - Initializes the graph structure.
  *
  * @graph: Pointer to the GraphType structure to initialize.
  *
- * Sets the number of vertices to zero. Sets each vertex and neighbor ID to an 
+ * Sets the number of vertices to zero. Sets each vertex and neighbor ID to an
  * empty string. Sets the neighbor counts and the adjacency matrix to zero.
  */
 void InitGraph(GraphType *graph)
@@ -19,6 +19,7 @@ void InitGraph(GraphType *graph)
     for (i = 0; i < MAX_VERTICES; i++) {
         strcpy(graph->Vertices[i], "");
         graph->NeighborCount[i] = 0;
+
         for (j = 0; j < MAX_VERTICES; j++) {
             graph->AdjMatrix[i][j] = 0;
             strcpy(graph->Neighbors[i][j], "");

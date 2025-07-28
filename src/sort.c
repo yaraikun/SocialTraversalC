@@ -1,5 +1,5 @@
-#include <string.h>
 #include "sort.h"
+#include <string.h>
 
 /**
  * SwapStr() - Swaps the contents of two strings.
@@ -7,7 +7,7 @@
  * @str1: The first string.
  * @str2: The second string.
  *
- * A helper function used in SortStrArr() that exchanges the contents of two 
+ * A helper function used in SortStrArr() that exchanges the contents of two
  * strings using a temporary variable.
  */
 void SwapStr(String str1, String str2)
@@ -25,9 +25,9 @@ void SwapStr(String str1, String str2)
  * @strArr: The array of strings to be sorted.
  * @size:   The number of elements in the array.
  *
- * Sorts the given string using selection sort. Lexicographic order is determined 
- * using strcmp(). If the array has one or zero elements, the function returns 
- * immediately.
+ * Sorts the given string using selection sort. Lexicographic order is
+ * determined using strcmp(). If the array has one or zero elements, the
+ * function returns immediately.
  */
 void SortStrArr(String strArr[], int size)
 {

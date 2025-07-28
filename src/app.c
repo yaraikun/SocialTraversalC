@@ -3,8 +3,8 @@
 #include <string.h>
 
 #include "app.h"
-#include "graph.h"
 #include "file_io.h"
+#include "graph.h"
 
 /**
  * get_output_filename() - Constructs an output filename with a given suffix.
@@ -15,16 +15,17 @@
  *
  * Extracts the base filename (excluding directory path and extension)
  * from the input path, appends the given suffix, and adds a ".TXT" extension.
- * This is a static helper function used to generate output filenames for the graph
- * representations.
+ * This is a static helper function used to generate output filenames for the
+ * graph representations.
  */
-static void get_output_filename(const char* input_path, const char* suffix, char* output_path)
+static void get_output_filename(const char *input_path, const char *suffix,
+                                char *output_path)
 {
     char temp_path[256];
-    char* base_name;
-    
+    char *base_name;
+
     strcpy(temp_path, input_path);
-    
+
     base_name = strrchr(temp_path, '/');
     if (base_name == NULL)
         base_name = strrchr(temp_path, '\\');
@@ -34,10 +35,10 @@ static void get_output_filename(const char* input_path, const char* suffix, char
     } else {
         base_name++;
     }
-    
+
     char *base_name_copy = strdup(base_name);
     char *token = strtok(base_name_copy, ".");
-    
+
     sprintf(output_path, "%s%s.TXT", token, suffix);
     free(base_name_copy);
 }
@@ -45,14 +46,15 @@ static void get_output_filename(const char* input_path, const char* suffix, char
 /**
  * RunProgram() - Main logic for user input, data processing, and output.
  *
- * Prompts the user for an input file name and reads a graph from the file if found. 
- * The function then writes set, degree, matrix, and list representations of the 
- * graph to separate output files. The output filenames are generated using 
- * get_output_filename() to append appropriate suffixes to the input filename. If 
- * the file was not found, the program terminates.
+ * Prompts the user for an input file name and reads a graph from the file if
+ * found. The function then writes set, degree, matrix, and list representations
+ * of the graph to separate output files. The output filenames are generated
+ * using get_output_filename() to append appropriate suffixes to the input
+ * filename. If the file was not found, the program terminates.
  *
- * Also prompts for a starting vertex ID to write the BFS and DFS traversal files.
- * If the vertex is not found in the graph, traversal outputs are skipped.
+ * Also prompts for a starting vertex ID to write the BFS and DFS traversal
+ * files. If the vertex is not found in the graph, traversal outputs are
+ * skipped.
  */
 void RunProgram(void)
 {
@@ -63,9 +65,9 @@ void RunProgram(void)
     int startVertexIndex;
 
     InitGraph(&graph);
-    
+
     printf("Input filename: ");
-    if(scanf("%255s", inputFilename) != 1) {
+    if (scanf("%255s", inputFilename) != 1) {
         fprintf(stderr, "Error reading filename input.\n");
         return;
     }
@@ -89,11 +91,10 @@ void RunProgram(void)
     get_output_filename(inputFilename, "-MATRIX", outputFilename);
     WriteMatrix(outputFilename, graph);
 
-
     // Input for Output 5 - 6
     printf("Input start vertex for the traversal: ");
     scanf("%8s", startVertex);
-    
+
     startVertexIndex = GetVertexIndex(graph, startVertex);
 
     if (startVertexIndex == -1) {

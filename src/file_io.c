@@ -1,14 +1,15 @@
+#include "file_io.h"
+#include "graph.h"
+#include "set.h"
+#include "sort.h"
+#include "traversals.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "file_io.h"
-#include "graph.h"
-#include "traversals.h"
-#include "sort.h"
-#include "set.h"
 
 /**
- * ReadInputFile() - Reads graph data from a file and populates the graph structure.
+ * ReadInputFile() - Reads graph data from a file and populates the graph
+ * structure.
  *
  * @filePath: Path to the input file.
  * @graph:    Pointer to the GraphType structure to populate.
@@ -46,7 +47,8 @@ int ReadInputFile(const char *filePath, GraphType *graph)
         graph->NeighborCount[i] = 0;
 
         // Read all its neighbors until the sentinel '-1'
-        while (fscanf(fp, "%8s", temp_neighbor) == 1 && strcmp(temp_neighbor, "-1") != 0) {
+        while (fscanf(fp, "%8s", temp_neighbor) == 1 &&
+               strcmp(temp_neighbor, "-1") != 0) {
             count = graph->NeighborCount[i];
 
             if (count < MAX_VERTICES) {
@@ -72,7 +74,8 @@ int ReadInputFile(const char *filePath, GraphType *graph)
 }
 
 /**
- * WriteSet() - Writes the vertex and edge set representation of a graph to a file.
+ * WriteSet() - Writes the vertex and edge set representation of a graph to a
+ * file.
  *
  * @filename: The name of the output file.
  * @graph:    The graph to be written.
@@ -102,7 +105,8 @@ void WriteSet(const char *filename, GraphType graph)
 
     fprintf(fp, "V(%s)={", token);
     for (i = 0; i < vertex_count; i++)
-        fprintf(fp, "%s%s", sortedVertices[i], (i == vertex_count - 1) ? "" : ",");
+        fprintf(fp, "%s%s", sortedVertices[i],
+                (i == vertex_count - 1) ? "" : ",");
     fprintf(fp, "}\n");
 
     fprintf(fp, "E(%s)={", token);
@@ -114,9 +118,7 @@ void WriteSet(const char *filename, GraphType graph)
     }
 
     free(base_name);
-
     fprintf(fp, "}");
-
     fclose(fp);
 }
 
@@ -142,7 +144,7 @@ void WriteDegree(const char *filename, GraphType graph)
     int original_index;
     int degree;
 
-    for(i = 0; i < graph.NumVertices; i++)
+    for (i = 0; i < graph.NumVertices; i++)
         strcpy(sortedVertices[i], graph.Vertices[i]);
 
     SortStrArr(sortedVertices, graph.NumVertices);
@@ -151,7 +153,7 @@ void WriteDegree(const char *filename, GraphType graph)
         original_index = GetVertexIndex(graph, sortedVertices[i]);
         degree = 0;
 
-        for(j = 0; j < graph.NumVertices; j++)
+        for (j = 0; j < graph.NumVertices; j++)
             degree += graph.AdjMatrix[original_index][j];
 
         fprintf(fp, "%s %d\n", sortedVertices[i], degree);
@@ -175,15 +177,15 @@ void WriteList(const char *filename, GraphType graph)
 
     if (fp == NULL)
         return;
-    
+
     int i, j;
 
     for (i = 0; i < graph.NumVertices; i++) {
         fprintf(fp, "%s->", graph.Vertices[i]);
-        
+
         for (j = 0; j < graph.NeighborCount[i]; j++)
             fprintf(fp, "%s->", graph.Neighbors[i][j]);
-        
+
         fprintf(fp, "\\\n");
     }
 
@@ -191,7 +193,8 @@ void WriteList(const char *filename, GraphType graph)
 }
 
 /**
- * WriteMatrix() - Writes the adjacency matrix representation of a graph to a file.
+ * WriteMatrix() - Writes the adjacency matrix representation of a graph to a
+ * file.
  *
  * @filename: The name of the output file.
  * @graph:    The graph to be written.
@@ -229,14 +232,15 @@ void WriteMatrix(const char *filename, GraphType graph)
 }
 
 /**
- * WriteBFS() - Writes the result of a Breadth-First Search (BFS) traversal to a file.
+ * WriteBFS() - Writes the result of a Breadth-First Search (BFS) traversal to a
+ * file.
  *
  * @filename:         The name of the output file.
  * @graph:            The graph to be written.
  * @startVertexIndex: The index of the vertex to start the BFS from.
  *
- * Performs BFS on the graph and writes the visited vertices separated by a space 
- * in BFS order to a file.
+ * Performs BFS on the graph and writes the visited vertices separated by a
+ * space in BFS order to a file.
  */
 void WriteBFS(const char *filename, GraphType graph, int startVertexIndex)
 {
@@ -257,14 +261,15 @@ void WriteBFS(const char *filename, GraphType graph, int startVertexIndex)
 }
 
 /**
- * WriteDFS() - Writes the result of a Depth-First Search (DFS) traversal to a file.
+ * WriteDFS() - Writes the result of a Depth-First Search (DFS) traversal to a
+ * file.
  *
  * @filename:         The name of the output file.
  * @graph:            The graph to be written.
  * @startVertexIndex: The index of the vertex to start the DFS from.
  *
- * Performs DFS on the graph and writes the visited vertices separated by a space 
- * in DFS order to a file.
+ * Performs DFS on the graph and writes the visited vertices separated by a
+ * space in DFS order to a file.
  */
 void WriteDFS(const char *filename, GraphType graph, int startVertexIndex)
 {
