@@ -5,12 +5,9 @@
 #
 # A simple and clean test script for the SocialNetwork project.
 #
-# This script runs the SocialNetwork executable against a predefined test
-# suite. It organizes the output for each input file into its own dedicated
-# subdirectory within the 'out' folder.
-#
 # Usage:
-#   ./test_runner.sh
+#   ./test_runner.sh        - Runs the full test suite.
+#   ./test_runner.sh clean  - Removes the output directory.
 # =============================================================================
 
 # --- Configuration ---
@@ -19,21 +16,34 @@ DATA_DIR="./data"
 OUT_DIR="./out"
 
 # --- Test Cases ---
-# Define the input files and the start vertex for each one.
 INPUT_FILES=(
     "GRAPH5.TXT"
     "GRAPH10.TXT"
     "GRAPH20.TXT"
 )
-
-# IMPORTANT: Update these vertices to be valid for your specific data files.
 START_VERTICES=(
     "A" # Example start vertex for GRAPH5.TXT
     "A" # Example start vertex for GRAPH10.TXT
     "A" # Example start vertex for GRAPH20.TXT
 )
 
-# --- Main Script Execution ---
+# --- Argument Handling ---
+# Check if the first argument is "clean". If so, delete the output
+# directory and exit the script immediately.
+if [ "$1" = "clean" ]; then
+    echo "--- Cleaning up output directory ---"
+    if [ -d "$OUT_DIR" ]; then
+        rm -rf "$OUT_DIR"
+        echo "Directory '$OUT_DIR' has been removed."
+    else
+        echo "Directory '$OUT_DIR' does not exist. Nothing to clean."
+    fi
+    exit 0
+fi
+
+# =============================================================================
+# --- Main Script Execution (if not cleaning) ---
+# =============================================================================
 
 echo "========================================"
 echo "      SocialNetwork Test Runner"
@@ -57,7 +67,7 @@ echo
 
 # 2. Setup Test Environment
 echo "--- [2] Preparing test environment..."
-# Remove the entire old output directory and create a fresh one
+# Ensure a clean slate for the test run by removing and recreating the directory.
 rm -rf "$OUT_DIR"
 mkdir -p "$OUT_DIR"
 echo "    -> Clean output directory created at: $OUT_DIR"
@@ -104,5 +114,7 @@ echo
 echo "========================================"
 echo "            Tests Complete"
 echo "========================================"
-echo "  > All results are organized into subdirectories inside: $OUT_DIR"
+echo "  > Outputs:  $OUT_DIR"
+echo "  > Logs:     $log_file_path"
+echo "  > To clean: ./test_runner.sh clean"
 echo "========================================"
