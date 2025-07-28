@@ -23,9 +23,9 @@ INPUT_FILES=(
     "GRAPH20.TXT"
 )
 START_VERTICES=(
-    "A" # Example start vertex for GRAPH5.TXT
-    "A" # Example start vertex for GRAPH10.TXT
-    "A" # Example start vertex for GRAPH20.TXT
+    "Beta" # Example start vertex for GRAPH5.TXT
+    "Earth" # Example start vertex for GRAPH10.TXT
+    "Hydrogen" # Example start vertex for GRAPH20.TXT
 )
 
 # --- Argument Handling ---
