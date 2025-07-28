@@ -1,6 +1,8 @@
 /**
- * @file app.h
- * @brief Main application logic declarations.
+ * @file    app.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Main application logic declarations.
  *
  * This file declares the primary function that orchestrates the program's
  * execution flow. It serves as the entry point for the application's core

@@ -1,3 +1,15 @@
+/**
+ * @file    graph.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Implementation of core graph data structure operations.
+ *
+ * This file provides the function definitions for manipulating the GraphType
+ * struct. It includes the essential logic for initializing a graph to a clean
+ * state and for translating between human-readable vertex names and their
+ * internal integer indices, a cornerstone for matrix operations.
+ */
+
 #include "graph.h"
 #include <stdio.h>
 #include <string.h>

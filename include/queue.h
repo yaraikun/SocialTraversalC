@@ -1,11 +1,13 @@
 /**
- * @file queue.h
- * @brief A simple fixed-size integer queue implementation.
+ * @file    queue.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Declarations for a simple integer queue.
  *
- * This file defines a queue data structure tailored for storing integer
- * indices of graph vertices. It is a fundamental component required for the
- * Breadth-First Search (BFS) traversal algorithm, which explores vertices
- * level by level.
+ * This file defines the public interface for a fixed-size, circular queue
+ * designed to store integer indices of graph vertices. This data structure
+ * is a fundamental component required by the Breadth-First Search (BFS)
+ * algorithm for its level-by-level traversal.
  */
 
 #ifndef QUEUE_H

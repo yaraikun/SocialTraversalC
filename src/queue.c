@@ -1,3 +1,15 @@
+/**
+ * @file    queue.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Implementation of a simple circular queue for integers.
+ *
+ * This file provides the logic for a First-In-First-Out (FIFO) queue using
+ * a static array and integer indices for the front and rear. It implements
+ * the `Enqueue` and `Dequeue` operations, as well as state-checking functions
+ * like `IsEmpty` and `IsFull`.
+ */
+
 #include "queue.h"
 #include "graph.h"
 

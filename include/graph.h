@@ -1,11 +1,13 @@
 /**
- * @file graph.h
- * @brief Core data structures for graph representation.
+ * @file    graph.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Core data structures and constants for graph representation.
  *
- * This file defines the fundamental structures and constants used to represent
- * an undirected graph throughout the program. It specifies an adjacency matrix
- * as the primary representation for efficient edge lookups and an adjacency
- * list for storing initial neighbor data.
+ * This file defines the fundamental `GraphType` structure, which serves as the
+ * primary representation of the social network graph using an adjacency matrix.
+ * It also defines key constants (`MAX_VERTICES`, `MAX_CHARS`) and declares
+ * essential utility functions like `InitGraph` and `GetVertexIndex`.
  */
 
 #ifndef GRAPH_H

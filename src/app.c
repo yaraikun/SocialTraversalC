@@ -1,3 +1,15 @@
+/**
+ * @file    app.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Main application logic implementation.
+ *
+ * This file contains the core workflow of the Social Network program. It is
+ * responsible for managing user interaction, orchestrating the sequence of
+ * function calls (e.g., read file, generate outputs, run traversals), and
+ * handling top-level error reporting like "File not found."
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

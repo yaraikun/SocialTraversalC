@@ -1,11 +1,13 @@
 /**
- * @file set.h
- * @brief Functions for extracting and organizing vertex and edge sets.
+ * @file    set.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Declarations for extracting and organizing vertex and edge sets.
  *
- * This module is designed specifically to prepare the data required for
- * "Output File #1". It provides functions to gather all unique vertices and
- * edges from the graph data structure and sort them according to the
- * project's specifications.
+ * This file provides the interface for functions dedicated to preparing data
+ * for Output File #1. It declares functions to gather all unique vertices
+ * and edges from the graph and defines the `EdgeType` struct used to
+ * represent a normalized edge.
  */
 
 #ifndef SET_H

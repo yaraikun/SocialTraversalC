@@ -1,3 +1,15 @@
+/**
+ * @file    set.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Implementation for generating sorted vertex and edge sets.
+ *
+ * This file contains the logic to iterate through the graph's adjacency
+ * matrix, find all unique vertices and edges, and normalize the edges to ensure
+ * consistency (e.g., (A,B) instead of (B,A)). It then sorts these sets
+ * alphabetically to meet strict output specifications.
+ */
+
 #include "set.h"
 #include "sort.h"
 #include <string.h>

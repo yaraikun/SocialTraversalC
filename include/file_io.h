@@ -1,11 +1,13 @@
 /**
- * @file file_io.h
- * @brief Declarations for file input and output operations.
+ * @file    file_io.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Declarations for file input and output operations.
  *
- * This file provides the interfaces for reading graph data from a text file
- * and for writing the various required output files. Each "Write" function
- * is tailored to a specific output format as defined by the project specs,
- * such as the vertex set, adjacency list, or traversal results.
+ * This file provides the public interface for all file system interactions.
+ * It declares the function for parsing the input graph file (`ReadInputFile`)
+ * and the six distinct functions required for generating each specific output
+ * file, from the vertex/edge sets to the traversal results.
  */
 
 #ifndef FILE_IO_H

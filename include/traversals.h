@@ -1,11 +1,13 @@
 /**
- * @file traversals.h
- * @brief Declarations for graph traversal algorithms.
+ * @file    traversals.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Declarations for graph traversal algorithms (BFS and DFS).
  *
- * This file declares the Breadth-First Search (BFS) and Depth-First Search
- * (DFS) algorithms. These functions are responsible for visiting graph
- * vertices in a specific order, starting from a given vertex. The results
- * are used to generate the BFS and DFS output files.
+ * This file defines the public interface for the Breadth-First Search (BFS)
+ * and Depth-First Search (DFS) algorithms. The functions declared here are
+ * responsible for producing an ordered list of visited vertices based on a
+ * given starting point, adhering to the project's tie-breaking rules.
  */
 
 #ifndef TRAVERSALS_H

@@ -1,3 +1,15 @@
+/**
+ * @file    sort.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Implementation of a string array sorting utility.
+ *
+ * This file implements a simple Selection Sort algorithm to sort an array of
+ * strings in-place. This algorithm was chosen for its straightforward
+ * implementation, which is sufficient for the small-scale data constraints
+ * of the project (maximum of 20 vertices).
+ */
+
 #include "sort.h"
 #include <string.h>
 

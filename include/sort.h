@@ -1,10 +1,13 @@
 /**
- * @file sort.h
- * @brief Declaration of a string array sorting utility.
+ * @file    sort.h
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Declaration of a general-purpose string array sorting utility.
  *
- * This file provides an interface to a sorting function. The purpose is to
- * have a centralized sorting utility that can be used by various modules
- * to meet output requirements, such as alphabetizing vertex lists or edges.
+ * This file declares the `SortStrArr` function. The purpose of this module is
+ * to provide a single, centralized sorting utility that can be used by various
+ * parts of the program (e.g., traversals, degree calculation) to meet
+ * alphabetical ordering requirements.
  */
 
 #ifndef SORT_H

@@ -1,3 +1,15 @@
+/**
+ * @file    file_io.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Implementation of file reading and writing operations.
+ *
+ * This file implements the logic for parsing the custom graph file format and
+ * for creating all six required output text files. It handles the specific
+ * formatting rules for each output, such as sorting, labeling, and proper
+ * use of delimiters, ensuring compliance with project specifications.
+ */
+
 #include "file_io.h"
 #include "graph.h"
 #include "set.h"

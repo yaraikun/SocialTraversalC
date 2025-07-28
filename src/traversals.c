@@ -1,3 +1,15 @@
+/**
+ * @file    traversals.c
+ * @author  Evan Riley L. Calupig
+ * @author  Jon Chester C. Donguines
+ * @brief   Implementation of graph traversal algorithms.
+ *
+ * This file contains the core logic for BFS (using a queue) and DFS (using
+ * recursion). A key feature of this implementation is the sorting of a
+ * vertex's neighbors alphabetically before they are visited. This ensures a
+ * deterministic output that follows the project's tie-breaking specification.
+ */
+
 #include "traversals.h"
 #include "graph.h"
 #include "queue.h"
