@@ -1,4 +1,4 @@
-# Project Deliverables
+# Project deliverables
 deliverables/
 
 # Executable files
@@ -11,6 +11,9 @@ deliverables/
 # Build directory
 obj/
 bin/
+
+# Program output directory
+out/
 
 # VSCode and IntelliJ shit
 .vscode/
