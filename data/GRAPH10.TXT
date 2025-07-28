@@ -1,11 +1,11 @@
 10
-Mercury Earth -1
-Venus Earth -1
-Earth Mercury Venus Mars -1
-Mars Earth Jupiter -1
-Jupiter Mars -1
-Zeus Hera -1
-Hera Zeus Apollo -1
-Apollo Hera Artemis Poseidon -1
-Artemis Apollo -1
-Poseidon Apollo -1
+Mercury Artemis -1
+Venus Hera Jupiter Zeus Artemis -1
+Earth Apollo Mars -1
+Mars Jupiter Earth -1
+Jupiter Poseidon Mars Artemis Venus -1
+Zeus Venus -1
+Hera Venus Apollo -1
+Apollo Poseidon Hera -1
+Artemis Jupiter Mercury Venus -1
+Poseidon Apollo Jupiter -1

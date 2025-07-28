@@ -1,6 +1,6 @@
 5
-Alpha Beta Gamma -1
-Beta Alpha Gamma -1
-Gamma Alpha Beta Delta -1
-Delta Gamma -1
-Omega Beta -1
+Alpha Beta Omega -1
+Beta Alpha Delta Omega -1
+Gamma Omega Delta -1
+Delta Beta -1
+Omega Beta Alpha Gamma -1
