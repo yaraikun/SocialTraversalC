@@ -102,9 +102,9 @@ for i in "${!INPUT_FILES[@]}"; do
     mv ./${base_name}-*.TXT "$case_output_dir/" 2>/dev/null
 
     if [ $? -eq 0 ]; then
-        echo "       STATUS: SUCCESS (Output in: ${case_output_dir}/)"
+        echo "       STATUS: SUCCESS"
     else
-        echo "       STATUS: WARNING (No output files were generated)"
+        echo "       STATUS: WARNING"
         echo "       (Check log: ${log_file_path})"
     fi
 done
@@ -115,6 +115,5 @@ echo "========================================"
 echo "            Tests Complete"
 echo "========================================"
 echo "  > Outputs:  $OUT_DIR"
-echo "  > Logs:     $log_file_path"
 echo "  > To clean: ./test_runner.sh clean"
 echo "========================================"
