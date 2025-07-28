@@ -7,6 +7,19 @@
 #include "sort.h"
 #include "set.h"
 
+/**
+ * ReadInputFile() - Reads graph data from a file and populates the graph structure.
+ *
+ * @filePath: Path to the input file.
+ * @graph:    Pointer to the GraphType structure to populate.
+ *
+ * This function reads the number of vertices, their IDs, and their neighbors
+ * from a file. For each vertex, it reads its neighbors until the sentinel
+ * value "-1" is found. The adjacency matrix is then constructed based on
+ * the neighbor relationships.
+ *
+ * Return: Number of vertices read if successful, -1 otherwise.
+ */
 int ReadInputFile(const char *filePath, GraphType *graph)
 {
     FILE *fp = fopen(filePath, "r");
@@ -58,6 +71,17 @@ int ReadInputFile(const char *filePath, GraphType *graph)
     return graph->NumVertices;
 }
 
+/**
+ * WriteSet() - Writes the vertex and edge set representation of a graph to a file.
+ *
+ * @filename: The name of the output file.
+ * @graph:    The graph to be written.
+ *
+ * Produces an output file where vertices and edges are listed using
+ * set representation, e.g., V(G) = {A,B,C} and E(G) = {(A,B),(B,C)}.
+ * Vertices and edges are sorted in ascending order. The filename's
+ * prefix is used as the label (e.g., "G" in V(G)).
+ */
 void WriteSet(const char *filename, GraphType graph)
 {
     FILE *fp = fopen(filename, "w");
@@ -96,6 +120,16 @@ void WriteSet(const char *filename, GraphType graph)
     fclose(fp);
 }
 
+/**
+ * WriteDegree() - Writes the degree of each vertex of a graph to a file.
+ *
+ * @filename: The name of the output file.
+ * @graph:    The graph to be written.
+ *
+ * Calculates and writes the degree of each vertex (the number of
+ * edges connected) in lexicographical order of vertex IDs. Each line of
+ * the file contains a vertex ID followed by its degree.
+ */
 void WriteDegree(const char *filename, GraphType graph)
 {
     FILE *fp = fopen(filename, "w");
@@ -126,6 +160,15 @@ void WriteDegree(const char *filename, GraphType graph)
     fclose(fp);
 }
 
+/**
+ * WriteList() - Writes the adjacency list representation of a graph to a file.
+ *
+ * @filename: The name of the output file.
+ * @graph:    The graph to be written.
+ *
+ * For each vertex, prints the vertex followed by its neighbors, each separated
+ * by an arrow (e.g., A->B->C->\). The backslash denotes the NULL pointer.
+ */
 void WriteList(const char *filename, GraphType graph)
 {
     FILE *fp = fopen(filename, "w");
@@ -147,6 +190,16 @@ void WriteList(const char *filename, GraphType graph)
     fclose(fp);
 }
 
+/**
+ * WriteMatrix() - Writes the adjacency matrix representation of a graph to a file.
+ *
+ * @filename: The name of the output file.
+ * @graph:    The graph to be written.
+ *
+ * Outputs a tabular matrix with vertex IDs as both row and column headers,
+ * and matrix entries 0 or 1 indicating whether an edge exists from row vertex
+ * to column vertex.
+ */
 void WriteMatrix(const char *filename, GraphType graph)
 {
     FILE *fp = fopen(filename, "w");
@@ -175,6 +228,16 @@ void WriteMatrix(const char *filename, GraphType graph)
     fclose(fp);
 }
 
+/**
+ * WriteBFS() - Writes the result of a Breadth-First Search (BFS) traversal to a file.
+ *
+ * @filename:         The name of the output file.
+ * @graph:            The graph to be written.
+ * @startVertexIndex: The index of the vertex to start the BFS from.
+ *
+ * Performs BFS on the graph and writes the visited vertices separated by a space 
+ * in BFS order to a file.
+ */
 void WriteBFS(const char *filename, GraphType graph, int startVertexIndex)
 {
     FILE *fp = fopen(filename, "w");
@@ -193,6 +256,16 @@ void WriteBFS(const char *filename, GraphType graph, int startVertexIndex)
     fclose(fp);
 }
 
+/**
+ * WriteDFS() - Writes the result of a Depth-First Search (DFS) traversal to a file.
+ *
+ * @filename:         The name of the output file.
+ * @graph:            The graph to be written.
+ * @startVertexIndex: The index of the vertex to start the DFS from.
+ *
+ * Performs DFS on the graph and writes the visited vertices separated by a space 
+ * in DFS order to a file.
+ */
 void WriteDFS(const char *filename, GraphType graph, int startVertexIndex)
 {
     FILE *fp = fopen(filename, "w");

@@ -2,6 +2,14 @@
 #include <string.h>
 #include "graph.h"
 
+/**
+ * InitGraph() - Initializes the graph structure.
+ *
+ * @graph: Pointer to the GraphType structure to initialize.
+ *
+ * Sets the number of vertices to zero. Sets each vertex and neighbor ID to an 
+ * empty string. Sets the neighbor counts and the adjacency matrix to zero.
+ */
 void InitGraph(GraphType *graph)
 {
     int i, j;
@@ -18,6 +26,17 @@ void InitGraph(GraphType *graph)
     }
 }
 
+/**
+ * GetVertexIndex() - Retrieves the index of a vertex by ID.
+ *
+ * @graph:      The graph to search.
+ * @vertexName: The ID of the vertex to find.
+ *
+ * Performs a linear search over the vertex list to find a match
+ * with the given ID and return its index.
+ *
+ * Return: The index of the vertex if found, -1 otherwise.
+ */
 int GetVertexIndex(GraphType graph, String vertexName)
 {
     int i;

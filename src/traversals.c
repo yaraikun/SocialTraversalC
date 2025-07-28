@@ -6,6 +6,19 @@
 #include "queue.h"
 #include "sort.h"
 
+/**
+ * DFSRecursive() - Helper function to perform recursive Depth-First Search (DFS).
+ *
+ * @graph:      The graph to traverse.
+ * @u_idx:      The index of the current vertex being visited.
+ * @visited:    An array storing the IDs of visited vertices.
+ * @result:     An array to store the traversal result in order.
+ * @count:      The number of visited vertices.
+ *
+ * Recursively explores the graph from vertex u_idx using DFS. Neighboring
+ * vertices are visited in lexicographical order based on their IDs. Each vertex 
+ * is visited osly once. The result array will store the traversal sequence.
+ */
 void DFSRecursive(GraphType graph, int u_idx, int visited[], String result[], int *count)
 {
     int i;
@@ -29,6 +42,16 @@ void DFSRecursive(GraphType graph, int u_idx, int visited[], String result[], in
     }
 }
 
+/**
+ * DFS() - Performs Depth-First Search (DFS) on a graph.
+ *
+ * @graph:              The graph to traverse.
+ * @startVertexIndex:   The index of the starting vertex.
+ * @result:             An array to store the traversal result in order.
+ *
+ * Performs a recursive DFS traversal starting from startVertexIndex.
+ * The result array will store the IDs of the vertices visited in DFS order.
+ */
 void DFS(GraphType graph, int startVertexIndex, String result[])
 {
     int visited[MAX_VERTICES] = {0};
@@ -37,6 +60,17 @@ void DFS(GraphType graph, int startVertexIndex, String result[])
     DFSRecursive(graph, startVertexIndex, visited, result, &count);
 }
 
+/**
+ * BFS() - Performs Breadth-First Search (BFS) on a graph.
+ *
+ * @graph:              The graph to traverse.
+ * @startVertexIndex:   The index of the starting vertex.
+ * @result:             An array to store the traversal result in order.
+ *
+ * Performs an iterative BFS traversal starting from startVertexIndex. Vertices 
+ * are visited level-by-level, and neighbors are enqueued in lexicographical order.
+ * Each vertex is visited only once. The result array will store the traversal sequence.
+ */
 void BFS(GraphType graph, int startVertexIndex, String result[])
 {
     int visited[MAX_VERTICES] = {0};

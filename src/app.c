@@ -6,6 +6,18 @@
 #include "graph.h"
 #include "file_io.h"
 
+/**
+ * get_output_filename() - Constructs an output filename with a given suffix.
+ *
+ * @input_path:  The original input file path.
+ * @suffix:      The suffix to append to the output file name (e.g. "-BFS").
+ * @output_path: The buffer that will store the resulting filename.
+ *
+ * Extracts the base filename (excluding directory path and extension)
+ * from the input path, appends the given suffix, and adds a ".TXT" extension.
+ * This is a static helper function used to generate output filenames for the graph
+ * representations.
+ */
 static void get_output_filename(const char* input_path, const char* suffix, char* output_path)
 {
     char temp_path[256];
@@ -30,6 +42,18 @@ static void get_output_filename(const char* input_path, const char* suffix, char
     free(base_name_copy);
 }
 
+/**
+ * RunProgram() - Main logic for user input, data processing, and output.
+ *
+ * Prompts the user for an input file name and reads a graph from the file if found. 
+ * The function then writes set, degree, matrix, and list representations of the 
+ * graph to separate output files. The output filenames are generated using 
+ * get_output_filename() to append appropriate suffixes to the input filename. If 
+ * the file was not found, the program terminates.
+ *
+ * Also prompts for a starting vertex ID to write the BFS and DFS traversal files.
+ * If the vertex is not found in the graph, traversal outputs are skipped.
+ */
 void RunProgram(void)
 {
     GraphType graph;
